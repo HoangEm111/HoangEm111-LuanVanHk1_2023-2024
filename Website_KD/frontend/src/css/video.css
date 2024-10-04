@@ -1,0 +1,27 @@
+/* Container video với chiều rộng 100vw */
+.video-container {
+  position: relative;
+  width: 98.92vw; /* Toàn bộ chiều rộng của viewport */
+  height: 34.25vw; /* Tỷ lệ 16:9 */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Video tự động lấp đầy container */
+.full-width-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Điều chỉnh cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+  .video-container {
+      height: 56.25vw; /* Tăng chiều cao cho tỷ lệ khác */
+  }
+}

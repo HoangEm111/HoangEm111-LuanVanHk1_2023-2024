@@ -1,0 +1,96 @@
+/* Đặt Navbar cố định ở phía trên cùng của trang */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Màu nền của Navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng cho Navbar */
+  z-index: 1000; /* Đảm bảo Navbar nằm trên cùng */
+  display: flex;
+  justify-content: space-between; /* Căn chỉnh nội dung */
+  align-items: center; /* Căn chỉnh dọc */
+  transition: top 0.3s ease; /* Hiệu ứng khi ẩn/hiện */
+}
+
+/* Logo */
+.logo {
+  font-size: 0.5em;
+  font-weight: bold;
+  color: #000; /* Chữ đen */
+  max-width: 200px; /* Giới hạn kích thước logo để không vượt quá màn hình */
+  height: auto; /* Đảm bảo logo giữ tỷ lệ gốc */
+  overflow: hidden; /* Ẩn phần vượt ra ngoài nếu cần */
+  text-align: center; /* Căn giữa văn bản trong logo nếu cần */
+  margin-right: auto; /* Đẩy logo về phía bên trái */
+}
+.logo-img{
+  width: 70px;
+  height: auto;
+  padding: 10px 20px;
+}
+
+/* Danh sách liên kết */
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #333; /* Màu chữ của liên kết */
+  font-size: 1em;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+li a:hover{
+  color: #007bff; /* Màu chữ khi hover hoặc active */
+  /* border-bottom: 2px solid #007bff; */
+}
+
+/* Giỏ hàng */
+.cart {
+  position: relative;
+  margin-left: 10px;
+  margin-right: 20px;
+  cursor: pointer; /* Thay đổi con trỏ khi di chuột qua giỏ hàng */
+  display: flex;
+  align-items: center; /* Căn giữa icon giỏ hàng dọc */
+}
+
+.cart-count {
+  background-color: #ff0000; /* Màu nền cho số lượng giỏ hàng */
+  border-radius: 50%;
+  padding: 3px 8px;
+  color: #fff; /* Chữ trắng */
+  font-weight: bold;
+  font-size: 0.9em;
+  position: absolute;
+  top: -10px; /* Điều chỉnh vị trí tùy theo kích thước icon */
+  right: -10px; /* Điều chỉnh vị trí tùy theo kích thước icon */
+  width: 1px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promotion-banner {
+  background-color: #4CAF50; /* Màu nền của banner */
+  color: white; /* Màu chữ */
+  padding: 10px; /* Khoảng cách bên trong */
+  text-align: center; /* Căn giữa nội dung */
+  margin-top: 60px; /* Thêm khoảng cách phía trên */
+  z-index: 1000; /* Đảm bảo banner nổi bật hơn các phần khác */
+  position: relative; /* Để sử dụng z-index nếu cần */
+}
+
+/* CSS cho container của trang */

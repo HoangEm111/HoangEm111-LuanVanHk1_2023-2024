@@ -1,0 +1,41 @@
+.product-card {
+    perspective: 1000px; /* Tạo chiều sâu cho hiệu ứng 3D */
+    cursor: pointer; /* Con trỏ khi hover */
+  }
+  
+  .product-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .product-card.flipped .product-inner {
+    transform: rotateY(180deg); /* Xoay 180 độ khi lật */
+  }
+  
+  .product-front, .product-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Ẩn mặt sau khi lật */
+  }
+  
+  .product-front {
+    background: #fff; /* Màu nền mặt trước */
+  }
+  
+  .product-back {
+    background: #fff; /* Màu nền mặt sau */
+    transform: rotateY(180deg); /* Đảo mặt sau để mặt sau hiển thị khi lật */
+  }
+  
+  .product-back img {
+    width: 100%; /* Đảm bảo hình ảnh mặt sau chiếm toàn bộ diện tích */
+  }
+  
+  .product-front img {
+    width: 100%; /* Đảm bảo hình ảnh mặt trước chiếm toàn bộ diện tích */
+  }
+  

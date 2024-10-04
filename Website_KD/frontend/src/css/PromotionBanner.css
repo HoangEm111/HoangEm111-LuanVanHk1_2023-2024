@@ -1,0 +1,11 @@
+/* CSS cho PromotionBanner */
+.promotion-banner {
+    background-color: #4CAF50; /* Màu nền của banner */
+    color: white; /* Màu chữ */
+    padding: 10px; /* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa nội dung */
+    margin-top: 20px; /* Thêm khoảng cách phía trên */
+    position: relative; /* Để có thể dùng với z-index nếu cần */
+    z-index: 1; /* Đảm bảo banner nổi hơn */
+  }
+  

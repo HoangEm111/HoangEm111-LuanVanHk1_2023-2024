@@ -1,0 +1,95 @@
+.product-list {
+  display: flex;
+  gap: 8px; /* Khoảng cách giữa các sản phẩm */
+  max-width: 1200px; /* Giới hạn độ rộng tối đa cho danh sách sản phẩm */
+  overflow-x: auto; /* Cuộn ngang */
+  scroll-behavior: smooth; /* Cuộn mượt */
+  scroll-snap-type: x mandatory; /* Tính năng cuộn từng sản phẩm */
+  -webkit-overflow-scrolling: touch; /* Cải thiện trải nghiệm trên thiết bị di động */
+  user-select: none; /* Ngăn chặn chọn văn bản */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.products-section {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+  position: relative;
+  width: 98.5vw; /* Đặt độ rộng bằng với khung nhìn */
+}
+
+.product-list::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn */
+}
+
+.product-item {
+  border-radius: 8px;
+  width: 300px; /* Chiều rộng cố định */
+  text-align: center;
+  flex-shrink: 0; /* Ngăn sản phẩm co lại */
+  scroll-snap-align: start; /* Khi cuộn, sản phẩm sẽ dừng ở đầu */
+  transition: transform 0.2s; /* Hiệu ứng chuyển động khi hover */
+}
+
+.product-item:hover {
+  transform: scale(1.05); /* Phóng to sản phẩm khi hover */
+}
+
+.product-item img {
+  max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng */
+  border-radius: 4px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.products-section h2 {
+  text-align: center;
+  font-size: 21px;
+  text-decoration: underline;
+}
+
+.products-section h2:hover {
+  cursor: pointer;
+}
+
+.product-info-home {
+  text-align: center;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin: 0; /* Xóa khoảng cách trên và dưới */
+}
+
+.product-price-home {
+  color: #333;
+  font-size: 14px;
+}
+
+.arrow {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  z-index: 1;
+}
+
+.arrow.prev {
+  position: absolute;
+  left: 100px; /* Nút trước nằm bên trái */
+}
+
+.arrow.next {
+  position: absolute;
+  right: 100px; /* Nút sau nằm bên phải */
+}
+
+.arrow:focus {
+  outline: none; /* Xóa viền khi nút được chọn */
+}

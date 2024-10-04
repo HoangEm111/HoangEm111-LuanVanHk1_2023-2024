@@ -1,0 +1,108 @@
+.product-content {
+  display: flex; /* Sử dụng flexbox cho layout */
+  gap: 20px; /* Khoảng cách giữa ảnh và thông tin */
+  padding: 30px 50px 0;
+}
+
+.product-images {
+  display: flex; /* Flexbox cho ảnh chính và ảnh thu nhỏ */
+  width: 50%; /* Chiếm 50% chiều rộng của trình duyệt */
+}
+
+.thumbnail-images {
+  display: flex;
+  flex-direction: column; /* Sắp xếp ảnh thu nhỏ theo cột */
+  width: 14%; /* Chiếm 30% chiều rộng của div thumbnail */
+  gap: 10px; /* Khoảng cách giữa các ảnh thu nhỏ */
+  padding: 0 10px;
+}
+
+.main-image {
+  width: 80%; /* Ảnh chính chiếm 70% chiều rộng của div chính */
+  height: 100%; /* Tự động điều chỉnh chiều cao */
+}
+
+.thumbnail {
+  width: 100%; /* Ảnh thu nhỏ chiếm toàn bộ chiều rộng của div */
+  height: auto; /* Tự động điều chỉnh chiều cao */
+  cursor: pointer; /* Con trỏ khi hover */
+  transition: transform 0.2s ease-in-out;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column; /* Đảm bảo thông tin sản phẩm nằm theo cột */
+  justify-content: flex-start;
+  width: 50%; /* Chiếm 50% chiều rộng của trình duyệt */
+  text-align: left;
+  padding: 10px;
+}
+
+.product-info h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.button-quantity {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#quantity-select {
+  width: 50px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.notification {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.notification-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.notification-info {
+  flex-grow: 1;
+}
+
+.view-cart-button {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.view-cart-button:hover {
+  background-color: #444;
+}
