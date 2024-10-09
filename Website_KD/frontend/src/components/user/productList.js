@@ -66,9 +66,13 @@ const ProductList = () => {
     listRef.current.scrollLeft += productItemWidth; // Cuộn sang phải
   };
 
+
   return (
+   
     <div className="products-section">
+        <h3>New Arrivals</h3>
       <button className="arrow prev" onClick={handlePrevClick}>&#10094;</button>
+  
       <div
         className="product-list"
         ref={listRef}
@@ -78,14 +82,15 @@ const ProductList = () => {
         onMouseMove={handleMouseMove}
         style={{ display: 'flex', overflowX: 'hidden' }} // Đảm bảo cuộn
       >
+         
         {extendedProducts.map((product, index) => (
-  <div key={`${product.id}-${index}`} className="product-item" onClick={handleClick}>
+    <div key={`${product.id}-${index}`} className="product-item" onClick={handleClick}>
     <Link to={`/products/${product.id}`} className="product-link">
       <img src={product.image} alt={product.name} className="product-image" />
     </Link>
     <div className="product-info-home">
       <Link to={`/products/${product.id}`} className="product-link">
-        <h4 className="product-name">{product.name}</h4>
+        <h1 className="product-name">{product.name}</h1>
       </Link>
       <p className="product-price-home">{product.price.toLocaleString()} VND</p>
     </div>

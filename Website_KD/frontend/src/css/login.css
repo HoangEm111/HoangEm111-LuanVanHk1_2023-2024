@@ -1,40 +1,124 @@
-/* login.css */
-.login {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-top: 150px;
+  background-image: url('https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/h_945,c_limit/9edba58c-bc29-467d-8aff-f1f72e87c1d0/nike-trail-announces-wildhorse-10-and-kiger-10.jpg');
+
+}
+
+.login-box {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  outline: none;
+  font-size: 16px;
+ 
+}
+
+.input-box .icon {
+  position: absolute;
+  top: 39%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 20px;
+
+}
+
+.options {
+  display: flex;
+  justify-content: center ;
+  margin-bottom: 20px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.options a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.login-btn {
   
-  .login form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .login div {
-    margin-bottom: 15px;
-  }
-  
-  .login label {
-    margin-bottom: 5px;
-  }
-  
-  .login input {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .login button {
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .login button:hover {
-    background-color: #0056b3;
-  }
-  
+  padding: 10px;
+  background: #ff3366;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #ff6699;
+}
+
+.or {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-login button {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  width: 120px;
+}
+
+.social-login .facebook {
+  background: #3b5998;
+}
+
+.social-login .twitter {
+  background: #00aced;
+}
+.error-message {
+  color: red; /* Màu chữ đỏ cho thông báo lỗi */
+  font-size: 0.8em; /* Kích thước chữ nhỏ hơn */
+  margin-top: 5px; /* Khoảng cách giữa input và thông báo lỗi */
+}
+.input-box input:focus + .icon {
+  background: transparent; /* Đảm bảo không có nền khi focus */
+}
+.icon-password{
+  position: absolute;
+  cursor: pointer;
+  top: 39%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 20px;
+  right: 34%;
+  bottom: 4%;
+
+}

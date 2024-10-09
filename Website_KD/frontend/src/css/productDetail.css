@@ -1,12 +1,13 @@
 .product-content {
   display: flex; /* Sử dụng flexbox cho layout */
   gap: 20px; /* Khoảng cách giữa ảnh và thông tin */
-  padding: 30px 50px 0;
+  padding: 40px 50px 0;
 }
 
 .product-images {
   display: flex; /* Flexbox cho ảnh chính và ảnh thu nhỏ */
   width: 50%; /* Chiếm 50% chiều rộng của trình duyệt */
+  justify-content: space-evenly;
 }
 
 .thumbnail-images {
@@ -14,11 +15,10 @@
   flex-direction: column; /* Sắp xếp ảnh thu nhỏ theo cột */
   width: 14%; /* Chiếm 30% chiều rộng của div thumbnail */
   gap: 10px; /* Khoảng cách giữa các ảnh thu nhỏ */
-  padding: 0 10px;
 }
 
 .main-image {
-  width: 80%; /* Ảnh chính chiếm 70% chiều rộng của div chính */
+  width: 82%; /* Ảnh chính chiếm 70% chiều rộng của div chính */
   height: 100%; /* Tự động điều chỉnh chiều cao */
 }
 

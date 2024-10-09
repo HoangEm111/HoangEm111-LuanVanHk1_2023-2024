@@ -1,7 +1,13 @@
 /* src/css/home.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .home-container {
   position: relative;
-  padding-top: 65px;
+  padding-top: 40px;
 }
 .home-container h3{
   font-weight: bold;
@@ -13,4 +19,8 @@
 
 .home-container h3:hover{
   cursor: pointer;
+}
+
+.home{
+  padding-bottom: 50px;
 }

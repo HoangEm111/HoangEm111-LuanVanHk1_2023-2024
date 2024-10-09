@@ -1,48 +1,70 @@
-const accountService = require('../service/accountService')
-class accountController {
-    async findAll(req, res) {
-        let data = await accountService.findAll()
-        res.json(data)
+const db = require('../config/db'); // Đảm bảo đường dẫn đúng
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+// Hàm tiện ích để thực hiện truy vấn
+const query = async (sql, params) => {
+  const [results] = await db.query(sql, params);
+  return results;
+};
+
+// Đăng ký người dùng mới
+const register = async (req, res) => {
+  const { username, email, password, role = 'user' } = req.body;
+
+  try {
+    // Kiểm tra xem người dùng đã tồn tại
+    const userExists = await query('SELECT * FROM users WHERE email = ?', [email]);
+    if (userExists.length > 0) {
+      return res.status(400).json({ message: 'Người dùng đã tồn tại' });
     }
 
-    async create(req, res) {
-        let account = req.body
-        if (account) {
-            await accountService.createCustomer(account.name, account.address, account.gender,
-                account.yob, account.phone)
-            let customer = await accountService.findOneByPhoneNumber(account.phone)
-            await accountService.createAccount(account.phone, account.passwd, customer[0].id)
-            res.json(customer)
-        } else {
-            res.json('Thất bại')
-        }
+    // Kiểm tra độ dài password
+    if (!password || password.length < 6) {
+      return res.status(400).json({ message: 'Mật khẩu phải có ít nhất 6 ký tự.' });
     }
 
-    async findOneById(req, res) {
-        let id = req.params.id
-        let data = await accountService.findOneById(id)
-        res.json(data)
+    // Băm mật khẩu
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Tạo người dùng mới
+    await query('INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)', 
+      [username, email, hashedPassword, role]);
+
+    res.status(201).json({ message: 'Đăng ký thành công' });
+  } catch (error) {
+    console.error('Đã xảy ra lỗi: ', error);
+    res.status(500).json({ message: 'Đã xảy ra lỗi' });
+  }
+};
+
+// Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const users = await query('SELECT * FROM users WHERE email = ?', [email]);
+
+    if (users.length === 0) {
+      return res.status(400).json({ message: 'Thông tin đăng nhập không hợp lệ' });
     }
-    // async update(req, res) {
-    //     let id = req.params.id
-    //     let newCategoryName = req.body.newCategoryName
-    //     if (id && newCategoryName) {
-    //         let data = await accountService.update(newCategoryName, id)
-    //         res.json(data)
-    //     } else {
-    //         res.json("Xóa thất bại")
-    //     }
-    // }
-    // async delete(req, res) {
-    //     let id = req.params.id
-    //     if (id) {
-    //         let data = await accountService.delete(id)
-    //         res.json(data)
-    //     } else {
-    //         res.json("Xóa thất bại")
-    //     }
 
-    // }
+    const user = users[0];
+    const match = await bcrypt.compare(password, user.password);
 
-}
-module.exports = new accountController()
+    if (!match) {
+      return res.status(400).json({ message: 'Thông tin đăng nhập không hợp lệ' });
+    }
+
+    // Tạo JWT token bao gồm role
+    const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, 'jwt_secret', { expiresIn: '1h' });
+
+    res.status(200).json({ message: 'Đăng nhập thành công', token, role: user.role });
+  } catch (error) {
+    console.error('Đã xảy ra lỗi: ', error);
+    res.status(500).json({ message: 'Đã xảy ra lỗi' });
+  }
+};
+
+module.exports = { register, login };

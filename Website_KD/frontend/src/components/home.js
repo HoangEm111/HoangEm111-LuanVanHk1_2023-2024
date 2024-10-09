@@ -5,6 +5,9 @@ import '../css/home.css'; // Thêm CSS cho trang chủ
 import HomeVideo from './video'; // Import component video
 import ProductList from './user/productList';
 import UserGroups from './user/usergroups';
+import Footer from './user/footer';
+import Register from './register';
+import LoginForm from './user/LoginForm';
 
 
 const Home = ({ products }) => {
@@ -14,12 +17,11 @@ const Home = ({ products }) => {
     <div className="home-container">
       {/* <PromotionBanner message={promoMessage} /> */}
 
-
       {/* Chèn video vào trang chính */}
       <div className="video-container">
         <HomeVideo />
       </div>
-      <h3>New Arrivals</h3>
+   
       {/* Danh sách sản phẩm */}
       <div className="productList_container">
         <ProductList products={products} />
@@ -29,7 +31,10 @@ const Home = ({ products }) => {
       <h1>Welcome to Our Store</h1>
       <UserGroups /> {/* Sử dụng component UserGroups */}
     </div>
+   
+    <Footer />
     </div>
+   
   );
 };
 

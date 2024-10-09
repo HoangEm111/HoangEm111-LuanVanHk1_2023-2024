@@ -25,24 +25,25 @@ nav {
   margin-right: auto; /* Đẩy logo về phía bên trái */
 }
 .logo-img{
-  width: 70px;
+  width: 100px;
   height: auto;
   padding: 10px 20px;
 }
 
 /* Danh sách liên kết */
-ul {
+.nav-links ul {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
+  flex-direction: row;
 }
 
 li {
   margin: 0 15px;
 }
 
-a {
+ nav a {
   text-decoration: none;
   color: #333; /* Màu chữ của liên kết */
   font-size: 1em;
@@ -53,7 +54,7 @@ a {
 
 li a:hover{
   color: #007bff; /* Màu chữ khi hover hoặc active */
-  /* border-bottom: 2px solid #007bff; */
+  border-bottom: 2px solid #007bff;
 }
 
 /* Giỏ hàng */
@@ -93,4 +94,25 @@ li a:hover{
   position: relative; /* Để sử dụng z-index nếu cần */
 }
 
-/* CSS cho container của trang */
+.logout-menu {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  top: 40px;
+  right: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.logout-menu button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 14px;
+}
+
+.logout-menu button:hover {
+  color: #f00;
+}
